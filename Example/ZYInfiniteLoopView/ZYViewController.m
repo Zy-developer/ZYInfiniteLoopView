@@ -169,9 +169,10 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
+        _scrollView.bounces = YES;
         _scrollView.frame = self.view.bounds;
         _scrollView.backgroundColor = [UIColor clearColor];
-        _scrollView.contentSize = CGSizeMake(width, height+120);
+        _scrollView.contentSize = CGSizeMake(width, height + 120);
         _scrollView.showsVerticalScrollIndicator = NO;
     }
     return _scrollView;
