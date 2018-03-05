@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "ZYInfiniteLoopView"
   s.version      = "1.0.0"
-  s.summary      = "ZYInfiniteLoopView Language: Objective-C. 轮播图组件, 在YYInfiniteLoopView基础上进行修改的, 支持显示本地图像."
+  s.summary      = "ZYInfiniteLoopView Language: Objective-C. 轮播图组件, 在YYInfiniteLoopView基础上进行修改的, 增加支持显示本地图像."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "ZYInfiniteLoopView 轮播图组件, 支持显示网络、本地图像, 使用CollectionView实现, 使用Delegate/Block回调点击事件."
 
-  s.homepage     = "https://github.com/zengyuios/ZYInfiniteLoopView"
+  s.homepage     = "https://github.com/zengyuios/ZYInfiniteLoopView.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 

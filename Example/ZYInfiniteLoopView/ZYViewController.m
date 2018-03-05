@@ -93,7 +93,7 @@
     // 过渡动画方向
     loopView.animationDirection = InfiniteLoopViewAnimationDirectionRight;
     // 设置frame
-    loopView.frame = CGRectMake(0, height*0.25+10, width, height*0.25);
+    loopView.frame = CGRectMake(0, height * 0.25 + 10, width, height * 0.25);
     [self.scrollView addSubview:loopView];
 }
 
@@ -111,7 +111,7 @@
     loopView.pagePosition = InfiniteLoopViewPagePositionLeft;
     loopView.animationType = InfiniteLoopViewAnimationTypePageCurl;
     loopView.animationDirection = InfiniteLoopViewAnimationDirectionBottom;
-    loopView.frame = CGRectMake(0, height*0.5+20, width, height*0.25);
+    loopView.frame = CGRectMake(0, height * 0.5 + 20, width, height * 0.25);
     [self.scrollView addSubview:loopView];
 }
 
@@ -124,7 +124,7 @@
     loopView.pagePosition = InfiniteLoopViewPagePositionRight;
     loopView.animationDuration = 2.0f;
     loopView.animationType = InfiniteLoopViewAnimationTypeRippleEffect;
-    loopView.frame = CGRectMake(0, height*0.75+30, width, height*0.25);
+    loopView.frame = CGRectMake(0, height * 0.75 + 30, width, height * 0.25);
     loopView.pageIndicatorColor = [UIColor orangeColor];
     loopView.currentPageIndicatorColor = [UIColor magentaColor];
     [self.scrollView addSubview:loopView];
@@ -157,11 +157,13 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@"第一张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
+        _titles = @[
+                    @"第一张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
                     @"第二张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
                     @"第三张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
                     @"第四张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
-                    @"第五张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~"];
+                    @"第五张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~"
+                    ];
     }
     return _titles;
 }
