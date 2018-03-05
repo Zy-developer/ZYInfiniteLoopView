@@ -1,0 +1,6 @@
+framework module ZYInfiniteLoopView {
+  umbrella header "ZYInfiniteLoopView-umbrella.h"
+
+  export *
+  module * { export * }
+}

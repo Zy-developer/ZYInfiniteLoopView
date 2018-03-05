@@ -1,0 +1,16 @@
+PODS:
+  - ZYInfiniteLoopView (0.1.0)
+
+DEPENDENCIES:
+  - ZYInfiniteLoopView (from `../`)
+
+EXTERNAL SOURCES:
+  ZYInfiniteLoopView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ZYInfiniteLoopView: 7f677e5bafcb94c2f62349a9abe35198d9d37969
+
+PODFILE CHECKSUM: 204decbbbbdb12df85c513f4a830c4e472e9d73f
+
+COCOAPODS: 1.4.0

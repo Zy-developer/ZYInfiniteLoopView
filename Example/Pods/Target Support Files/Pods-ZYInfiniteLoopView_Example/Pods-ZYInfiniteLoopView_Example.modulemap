@@ -1,0 +1,6 @@
+framework module Pods_ZYInfiniteLoopView_Example {
+  umbrella header "Pods-ZYInfiniteLoopView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
