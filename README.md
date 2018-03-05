@@ -48,7 +48,7 @@ $ pod install
 * Requires a minimum of iOS 8.0+.
 
 ## ✋ Use
-
+        用法与YYInfiniteLoopView一致，如果没用过YYInfiniteLoopView可下载Demo查看.
 ## 👑 Author
 
 👱 Zy, Blogs: [.故事](http://www.cnblogs.com/Zy-iOS-GS/).

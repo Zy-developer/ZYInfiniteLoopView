@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "ZYInfiniteLoopView.h"
+#import "ZYInfiniteLoopViewCell.h"
+#import "ZYWeakTimer.h"
 
 FOUNDATION_EXPORT double ZYInfiniteLoopViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZYInfiniteLoopViewVersionString[];

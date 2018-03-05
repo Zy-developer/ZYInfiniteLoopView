@@ -2,6 +2,8 @@ use_frameworks!
 
 target 'ZYInfiniteLoopView_Example' do
   pod 'ZYInfiniteLoopView', :path => '../'
+  
+  pod 'SDWebImage'
 
   target 'ZYInfiniteLoopView_Tests' do
     inherit! :search_paths

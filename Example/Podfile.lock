@@ -1,7 +1,12 @@
 PODS:
-  - ZYInfiniteLoopView (0.1.0)
+  - SDWebImage (4.3.2):
+    - SDWebImage/Core (= 4.3.2)
+  - SDWebImage/Core (4.3.2)
+  - ZYInfiniteLoopView (1.0.0):
+    - SDWebImage
 
 DEPENDENCIES:
+  - SDWebImage
   - ZYInfiniteLoopView (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +14,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ZYInfiniteLoopView: 7f677e5bafcb94c2f62349a9abe35198d9d37969
+  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
+  ZYInfiniteLoopView: bfe7065c588e8b76f09c79b58dbb13f68af39bff
 
-PODFILE CHECKSUM: 204decbbbbdb12df85c513f4a830c4e472e9d73f
+PODFILE CHECKSUM: f2a2280b7574b3b1f1f33d832547c7621d82334b
 
 COCOAPODS: 1.4.0
