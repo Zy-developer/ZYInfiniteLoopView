@@ -43,7 +43,7 @@
 - (void)loopViewDelegate {
     // 类方法
     ZYInfiniteLoopView *loopView = [ZYInfiniteLoopView infiniteLoopViewWithImageUrls:self.imgUrls titles:self.titles didSelectedImage:^(NSInteger index) {
-        NSLog(@"%zd", index);
+        NSLog(@"点击了轮播图 - %zd", index);
     }];
     // 设置代理
     loopView.delegate = self;
@@ -58,7 +58,7 @@
 - (void)loopViewBlock {
     // 实例方法
     ZYInfiniteLoopView *loopView = [[ZYInfiniteLoopView alloc] initWithImageUrls:self.imgUrls titles:nil didSelectedImage:^(NSInteger index) {
-        NSLog(@"%zd", index);
+        NSLog(@"loopViewBlock - %zd", index);
     }];
     // 是否隐藏蒙版
     loopView.hideCover = NO;
@@ -99,7 +99,7 @@
 
 - (void)loopViewTest {
     ZYInfiniteLoopView *loopView = [[ZYInfiniteLoopView alloc] initWithImageUrls:self.imgUrls titles:self.titles didSelectedImage:^(NSInteger index) {
-        NSLog(@"%zd", index);
+        NSLog(@"loopViewTest - %zd", index);
     }];
     loopView.timeInterval = 1.0f;
     loopView.bgViewColor = [UIColor clearColor];
@@ -117,7 +117,7 @@
 
 - (void)loopViewTest2 {
     ZYInfiniteLoopView *loopView = [ZYInfiniteLoopView infiniteLoopViewWithImageUrls:self.imgUrls titles:self.titles didSelectedImage:^(NSInteger index) {
-        NSLog(@"%zd", index);
+        NSLog(@"loopViewTest2 - %zd", index);
     }];
     loopView.hideTitleLabel = YES;
     loopView.titlePosition = InfiniteLoopViewTitlePositionTop;
@@ -136,9 +136,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - YYInfiniteLoopViewDelegate
+#pragma mark - ZYInfiniteLoopViewDelegate
 - (void)infiniteLoopView:(ZYInfiniteLoopView *)infiniteLoopView didSelectedImage:(NSInteger)selectedImageIndex {
-    NSLog(@"%zd", selectedImageIndex);
+    NSLog(@"ZYInfiniteLoopViewDelegate - %zd", selectedImageIndex);
 }
 
 
@@ -146,9 +146,9 @@
     if (!_imgUrls) {
         _imgUrls = @[
                      @"http://desk.fd.zol-img.com.cn/t_s1280x1024c5/g5/M00/06/0F/ChMkJ1eB42-IXICZAC-b2z1kN5IAATZEAGIpKQAL5vz687.jpg", 
-                     @"http://desk.fd.zol-img.com.cn/t_s1280x1024c5/g5/M00/0F/0A/ChMkJ1eZ8OOITLc2AAQWEZjZFAgAAT71gKtNRQABBYp187.jpg",
+                     @"image_01.jpg",
                      @"http://desk.fd.zol-img.com.cn/t_s1280x1024c5/g5/M00/06/0F/ChMkJleB422IXV93ACmx9ykNKG8AATZEAFaBoMAKbIP392.jpg",
-                     @"http://desk.fd.zol-img.com.cn/t_s1280x1024c5/g5/M00/00/04/ChMkJ1ebRfuIfC-3AAQNjkmPpFYAAT-PwLA1wYABA2m812.jpg",
+                     @"image_02.jpg",
                      @"http://desk.fd.zol-img.com.cn/t_s1280x1024c5/g5/M00/0F/01/ChMkJleYmTCID1AzAAau5xfqy0UAAT5igN01VIABq7_951.jpg"
                      ];
     }
@@ -158,11 +158,11 @@
 - (NSArray *)titles {
     if (!_titles) {
         _titles = @[
-                    @"第一张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
-                    @"第二张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
-                    @"第三张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
-                    @"第四张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~",
-                    @"第五张图, ( ⊙ o ⊙ )啊！O(∩_∩)O哈哈~"
+                    @"第一张图, 网络加载图像",
+                    @"第二张图, 显示本地图像",
+                    @"第三张图, 网络加载图像",
+                    @"第四张图, 显示本地图像",
+                    @"第五张图, 网络加载图像"
                     ];
     }
     return _titles;
