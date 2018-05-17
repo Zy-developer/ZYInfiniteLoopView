@@ -58,6 +58,8 @@
                 [self.collectionView scrollToItemAtIndexPath:
                  [NSIndexPath indexPathForItem:[self.imageUrls count] inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
                 [self addTimer];
+            } else {
+                [self removeTimer];
             }
         });
     }
@@ -193,7 +195,7 @@
 
 #pragma mark - Timer Method
 - (void)addTimer {
-    if (!_autoPlayer) return;
+    if (!_autoPlayer || self.imageUrls.count <= 1) return;
     [self removeTimer];
     __weak typeof(self) weakSele = self;
     self.timer = [ZYWeakTimer scheduledTimerWithTimeInterval:self.timeInterval target:self block:^(id userInfo) {
@@ -291,6 +293,8 @@
                 [self.collectionView scrollToItemAtIndexPath:
                  [NSIndexPath indexPathForItem:[self.imageUrls count] inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
                 [self addTimer];
+            } else {
+                [self removeTimer];
             }
         });
     }

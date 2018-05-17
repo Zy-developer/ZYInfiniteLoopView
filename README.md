@@ -31,7 +31,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'ZYInfiniteLoopView', '~> 1.0.0'
+pod 'ZYInfiniteLoopView', '~> 1.0.1'
 end
 ```
 
@@ -49,6 +49,13 @@ $ pod install
 
 ## ✋ Use
         用法与YYInfiniteLoopView一致，如果没用过YYInfiniteLoopView可下载Demo查看。
+        
+## 📚 UPDATE
+        2018-05-17 1.0.1
+        `   修复只有一张图像自动滚动时的BUG `
+        2018-03-06 1.0.0
+        `   增加根据URL判断加载本地图像 `
+        
 ## 👑 Author
 
 👱 Zy, Blogs: [.故事](http://www.cnblogs.com/Zy-iOS-GS/).

@@ -36,7 +36,7 @@
     if (imageUrl.length) {
         if ([imageUrl hasPrefix:@"http"]) {
             NSURL *url = [NSURL URLWithString:imageUrl];
-            [self.imageView sd_setImageWithURL:url placeholderImage:self.placeholderImg options:SDWebImageRetryFailed | SDWebImageContinueInBackground | SDWebImageAllowInvalidSSLCertificates];
+            [self.imageView sd_setImageWithURL:url placeholderImage:self.placeholderImg options:SDWebImageRetryFailed | SDWebImageRefreshCached | SDWebImageContinueInBackground | SDWebImageAllowInvalidSSLCertificates];
         } else {
             self.imageView.image = [UIImage imageNamed:imageUrl];
         }

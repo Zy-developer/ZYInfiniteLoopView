@@ -6,29 +6,9 @@
 //
 // 
 
-
-/*********************************************************************
- *
- 
- * 轮播图组件
- *  @URL GitHub https://github.com/zengyuios/ZYInfiniteLoopView.git
- *  @URL CocoaPods https://cocoapods.org/?q=ZYInfiniteLoopView
- *  依赖第三方库:
- *      SDWebImage
- *
- * Release.
- *  Version: 1.0.0
- *  Date: 2018.03.05
- *  Descript:
- *  1. 支持显示本地图像.
- 
- *
- *********************************************************************/
-
-
 #import <UIKit/UIKit.h>
 
-/** 轮播图组件(1.0.0) */
+/** 轮播图组件(0.2.0) */
 @class ZYInfiniteLoopView;
 
 /** 轮播图代理 */
@@ -86,7 +66,13 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
     InfiniteLoopViewAnimationDirectionBottom // 向下
 };
 
-/** 轮播图组件(1.0.0) */
+/**
+ * 轮播图组件(1.0.1)
+ *  @URL GitHub https://github.com/zengyuios/ZYInfiniteLoopView.git
+ *  @URL CocoaPods https://cocoapods.org/?q=ZYInfiniteLoopView
+ *  依赖第三方库:
+ *      SDWebImage
+ */
 @interface ZYInfiniteLoopView : UIView
 /** 代理属性 */
 @property (nonatomic, weak) id<ZYInfiniteLoopViewDelegate> delegate;
@@ -98,7 +84,10 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
  *  注意: 传入的URL的完整性，加载图片时根据http判断加载网络还是本地图片.
  */
 @property (nonatomic, strong) NSArray<NSString *> *imageUrls;
-/** 是否开启自动轮播, 默认开启 */
+/**
+ * 是否开启自动轮播, 默认开启
+ *  注意: 当imageUrls个数为1时，会关闭
+ */
 @property (nonatomic, assign, getter=isAutoPlayer) BOOL autoPlayer;
 /** 占位图片, 默认没有 */
 @property (nonatomic, strong) UIImage *placeholderImage;
