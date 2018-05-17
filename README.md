@@ -20,7 +20,7 @@
 $ sudo gem install cocoapods
 ```
 
-> `CocoaPods 1.2.0+` is required to build `ZYInfiniteLoopView 1.0.0+`.
+> `CocoaPods 1.2.0+` is required to build `ZYInfiniteLoopView 1.0.1+`.
 
 #### 📃 Podfile
 
@@ -52,9 +52,9 @@ $ pod install
         
 ## 📚 UPDATE
         2018-05-17 1.0.1
-        `   修复只有一张图像自动滚动时的BUG `
+           修复只有一张图像自动滚动时的BUG。
         2018-03-06 1.0.0
-        `   增加根据URL判断加载本地图像 `
+           增加根据URL判断加载本地图像。
         
 ## 👑 Author
 
