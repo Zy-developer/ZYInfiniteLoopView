@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZYInfiniteLoopView"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "ZYInfiniteLoopView Language: Objective-C. 轮播图组件, 在YYInfiniteLoopView基础上进行修改的, 增加支持显示本地图像."
 
   # This description is used to generate tags and improve search results.

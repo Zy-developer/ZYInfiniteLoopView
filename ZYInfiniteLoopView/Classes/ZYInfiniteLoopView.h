@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-/** 轮播图组件(0.2.0) */
+/** 轮播图组件(1.0.2) */
 @class ZYInfiniteLoopView;
 
 /** 轮播图代理 */
@@ -67,7 +67,7 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
 };
 
 /**
- * 轮播图组件(1.0.1)
+ * 轮播图组件(1.0.2)
  *  @URL GitHub https://github.com/zengyuios/ZYInfiniteLoopView.git
  *  @URL CocoaPods https://cocoapods.org/?q=ZYInfiniteLoopView
  *  依赖第三方库:

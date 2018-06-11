@@ -32,7 +32,10 @@
 - (void)fire:(NSTimer *)timer {
     if (self.target) {
         if (self.selector) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [self.target performSelector:self.selector withObject:timer.userInfo];
+#pragma clang diagnostic pop
         }
     } else {
         [self.timer invalidate];

@@ -424,7 +424,10 @@
         _animation = [CATransition animation];
         [_animation setDuration:self.animationDuration];
         [_animation setFillMode:kCAFillModeForwards];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnon-literal-null-conversion"
         [_animation setTimingFunction:UIViewAnimationCurveEaseInOut];
+#pragma clang diagnostic pop
     }
     return _animation;
 }
