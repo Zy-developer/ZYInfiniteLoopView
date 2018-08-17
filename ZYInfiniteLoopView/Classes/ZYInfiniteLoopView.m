@@ -212,7 +212,10 @@
 
 - (void)nextImage {
     NSInteger page = self.collectionView.contentOffset.x / self.collectionView.bounds.size.width;
-    NSInteger offsetX = self.collectionView.frame.size.width * (page + 1);
+    if (page > self.imageUrls.count - 1) page = 0;
+    CGFloat width = self.collectionView.frame.size.width;
+    NSInteger offsetX = width * (page + 1);
+    if (offsetX > (self.imageUrls.count - 1) * width) offsetX = 0;
     [self.collectionView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     if (!(self.animationType == InfiniteLoopViewAnimationTypeNone)) {
         [self.collectionView.layer addAnimation:self.animation forKey:@"animationKey"];
@@ -271,6 +274,7 @@
 
 - (void)scrollViewDidStop:(UIScrollView *)scrollView{
     NSInteger offset = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    if (offset > self.imageUrls.count - 1) offset = 0;
     if (offset == 0 || offset == ([self.collectionView numberOfItemsInSection:0] - 1)) {
         offset = [self.imageUrls count] - (offset == 0 ? 0 : 1);
         scrollView.contentOffset = CGPointMake(offset * scrollView.bounds.size.width, 0);

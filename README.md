@@ -31,7 +31,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'ZYInfiniteLoopView', '~> 1.0.2'
+pod 'ZYInfiniteLoopView', '~> 1.0.3'
 end
 ```
 
@@ -51,6 +51,8 @@ $ pod install
         用法与YYInfiniteLoopView一致，如果没用过YYInfiniteLoopView可下载Demo查看。
         
 ## 📚 UPDATE
+        2018-08-17 1.0.3
+            修复偶现的图像消失的BUG。
         2018-06-11 1.0.2
             消除警告。
         2018-05-17 1.0.1
