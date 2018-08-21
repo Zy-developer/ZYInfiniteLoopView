@@ -56,7 +56,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([self.imageUrls count] > 1) {
                 [self.collectionView scrollToItemAtIndexPath:
-                 [NSIndexPath indexPathForItem:[self.imageUrls count] inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+                 [NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
                 [self addTimer];
             } else {
                 [self removeTimer];
@@ -195,7 +195,7 @@
 
 #pragma mark - Timer Method
 - (void)addTimer {
-    if (!_autoPlayer || self.imageUrls.count <= 1) return;
+    if (!_autoPlayer) return;
     [self removeTimer];
     __weak typeof(self) weakSele = self;
     self.timer = [ZYWeakTimer scheduledTimerWithTimeInterval:self.timeInterval target:self block:^(id userInfo) {
@@ -212,10 +212,8 @@
 
 - (void)nextImage {
     NSInteger page = self.collectionView.contentOffset.x / self.collectionView.bounds.size.width;
-    if (page > self.imageUrls.count - 1) page = 0;
     CGFloat width = self.collectionView.frame.size.width;
     NSInteger offsetX = width * (page + 1);
-    if (offsetX > (self.imageUrls.count - 1) * width) offsetX = 0;
     [self.collectionView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     if (!(self.animationType == InfiniteLoopViewAnimationTypeNone)) {
         [self.collectionView.layer addAnimation:self.animation forKey:@"animationKey"];
@@ -225,30 +223,36 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (_delegate && [_delegate respondsToSelector:@selector(infiniteLoopView:didSelectedImage:)]) {
-        [self.delegate infiniteLoopView:self didSelectedImage:indexPath.item % [self.imageUrls count]];
+        [self.delegate infiniteLoopView:self didSelectedImage:indexPath.item - 1];
     }
     if (self.didSelectedImage != nil) {
-        self.didSelectedImage(indexPath.item % [self.imageUrls count]);
+        self.didSelectedImage(indexPath.item - 1);
     }
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.imageUrls count] * ([self.imageUrls count] == 1 ? 1 : [self.imageUrls count]);
+    return self.imageUrls.count + 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZYInfiniteLoopViewCell *infiniteLoopViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:[ZYInfiniteLoopViewCell registerName] forIndexPath:indexPath];
     infiniteLoopViewCell.placeholderImg = self.placeholderImage;
-    infiniteLoopViewCell.imageUrl = _imageUrls[indexPath.row % [self.imageUrls count]];
+    if (indexPath.item == 0) {
+        infiniteLoopViewCell.imageUrl = _imageUrls.lastObject;
+    } else if (indexPath.item == self.imageUrls.count + 1) {
+        infiniteLoopViewCell.imageUrl = _imageUrls.firstObject;
+    } else {
+        infiniteLoopViewCell.imageUrl = _imageUrls[indexPath.item - 1];
+    }
     return infiniteLoopViewCell;
 }
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat scroll_W = scrollView.frame.size.width;
-    NSInteger page = (scrollView.contentOffset.x + scroll_W * .5) / scroll_W;
-    [self.pageControl setCurrentPage:page % [self.imageUrls count]];
+    NSInteger page = scrollView.contentOffset.x / scroll_W;
+    [self.pageControl setCurrentPage:page - 1];
     NSString *title = @"";
     if (self.titles.count > self.pageControl.currentPage) {
         title = [self.titles objectAtIndex:self.pageControl.currentPage];
@@ -274,10 +278,11 @@
 
 - (void)scrollViewDidStop:(UIScrollView *)scrollView{
     NSInteger offset = scrollView.contentOffset.x / scrollView.bounds.size.width;
-    if (offset > self.imageUrls.count - 1) offset = 0;
-    if (offset == 0 || offset == ([self.collectionView numberOfItemsInSection:0] - 1)) {
-        offset = [self.imageUrls count] - (offset == 0 ? 0 : 1);
-        scrollView.contentOffset = CGPointMake(offset * scrollView.bounds.size.width, 0);
+    if (offset > self.imageUrls.count) {
+        [scrollView setContentOffset:CGPointMake(scrollView.bounds.size.width, 0) animated:NO];
+    }
+    if (offset == 0) {
+        [scrollView setContentOffset:CGPointMake(self.imageUrls.count * scrollView.bounds.size.width, 0) animated:NO];
     }
 }
 
@@ -290,12 +295,13 @@
 - (void)setImageUrls:(NSArray *)imageUrls {
     _imageUrls = imageUrls;
     if (self.collectionView) {
-        [self.collectionView reloadData];[self.titleLabel setText:[self.titles firstObject]];
+        [self.collectionView reloadData];
+        [self.titleLabel setText:[self.titles firstObject]];
         [self.pageControl setNumberOfPages:[self.imageUrls count]];
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([self.imageUrls count] > 1) {
                 [self.collectionView scrollToItemAtIndexPath:
-                 [NSIndexPath indexPathForItem:[self.imageUrls count] inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+                 [NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
                 [self addTimer];
             } else {
                 [self removeTimer];

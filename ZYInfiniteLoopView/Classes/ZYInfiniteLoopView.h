@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-/** 轮播图组件(1.0.3) */
+/** 轮播图组件(1.0.4) */
 @class ZYInfiniteLoopView;
 
 /** 轮播图代理 */
@@ -67,13 +67,14 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
 };
 
 /**
- * 轮播图组件(1.0.3)
+ * 轮播图组件(1.0.4)
  *  @URL GitHub https://github.com/zengyuios/ZYInfiniteLoopView.git
  *  @URL CocoaPods https://cocoapods.org/?q=ZYInfiniteLoopView
  *  依赖第三方库:
  *      SDWebImage
  */
 @interface ZYInfiniteLoopView : UIView
+
 /** 代理属性 */
 @property (nonatomic, weak) id<ZYInfiniteLoopViewDelegate> delegate;
 /** 图片标题数组 */
@@ -84,10 +85,7 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
  *  注意: 传入的URL的完整性，加载图片时根据http判断加载网络还是本地图片.
  */
 @property (nonatomic, strong) NSArray<NSString *> *imageUrls;
-/**
- * 是否开启自动轮播, 默认开启
- *  注意: 当imageUrls个数为1时，会关闭
- */
+/** 是否开启自动轮播, 默认开启 */
 @property (nonatomic, assign, getter=isAutoPlayer) BOOL autoPlayer;
 /** 占位图片, 默认没有 */
 @property (nonatomic, strong) UIImage *placeholderImage;
@@ -138,6 +136,7 @@ typedef NS_ENUM(NSUInteger, InfiniteLoopViewAnimationDirection) {
  *  @return 返回当前对象
  */
 + (instancetype)infiniteLoopViewWithImageUrls:(NSArray<NSString *> *)imageUrls titles:(NSArray<NSString *> *)titles didSelectedImage:(didSelectedImage)selectedImage;
+
 /** 实例方法初始化, 参数同上 */
 - (instancetype)initWithImageUrls:(NSArray<NSString *> *)imageUrls titles:(NSArray<NSString *> *)titles didSelectedImage:(didSelectedImage)selectedImage;
 
